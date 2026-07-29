@@ -8,6 +8,8 @@
 //! design's 11-step font-size scale collapses to five emphasis roles ([`typography::Role`]);
 //! letter-spacing survives as literal interleaved spaces ([`tracking::tracked`]).
 
+pub mod color;
+
 mod hex;
 
 pub use hex::{composite, hex};
