@@ -207,16 +207,24 @@ the HTML card library from those same consts. DesignSync pushes the cards.
 
 ```
 crates/codegen/kol-theme/
-  src/tokens.rs          ← SOURCE OF TRUTH (colors, roles, motion, geometry)
+  src/hex.rs             ← const hex parser + alpha compositing
+  src/color.rs           ← SOURCE OF TRUTH: every colour, declared once
+  src/typography.rs      ← the five emphasis roles
   src/tracking.rs        ← tracked() letter-spacing helper
+  src/motion.rs          ← timing constants
+  src/geometry.rs        ← field dimensions, braille cell math
+  src/cards/             ← Card renderer + per-group builders
   src/bin/gen_cards.rs   ← emits HTML
         │
         ▼
-  design-system/*.html   ← committed, diffed in CI
+  design-system/*.html   ← committed; regenerated and diffed by `cargo test`
         │
         ▼
   DesignSync → "Kol Design System" project
 ```
+
+Tokens are split by family rather than pooled in one `tokens.rs` — each file stays small enough
+to hold in context whole, which is also what keeps edits to them reliable.
 
 Drift is structurally impossible: the cards cannot say anything the Rust consts do not.
 
@@ -270,13 +278,24 @@ density 2300 points (range 300–2600)
 
 ### 4.4 Card groups
 
-Six groups in the Design System pane: **Color** (surface ramp, text ramp, semantic, field depth,
-diff) · **Type** (roles, tracking) · **Field** (six modes as static frames) · **Chrome** (header,
-status bar, rails) · **States** (the six real application states) · **Consent** (modal + blast
-radius).
-
 Each card's first line carries `<!-- @dsCard group="…" -->` so the pane indexes it without
 explicit registration.
+
+**The library grows with the code.** Foundation cards are derivable from tokens alone and ship
+first; component cards require the component to exist, so they land with the phase that builds
+it. This is what "continuous design sync" means in practice — the design system is never ahead
+of the binary.
+
+| Group | Contents | Lands in |
+|---|---|---|
+| **Color** | Surface ramp, text ramp, semantic accents, field depth, diff | P1 |
+| **Type** | Emphasis roles, tracking demonstration | P1 |
+| **Motion** | Timing constants with their design sources | P1 |
+| **Geometry** | Field dimensions, braille cell math, density range | P1 |
+| **Field** | Six modes as static rendered frames | P2 |
+| **Chrome** | Header, status bar, rails | P2 |
+| **States** | The six real application states | P3 |
+| **Consent** | Modal + blast radius | P4 |
 
 ### 4.5 The loop
 
