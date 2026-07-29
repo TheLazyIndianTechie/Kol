@@ -1,0 +1,12 @@
+[package]
+license = "Apache-2.0"
+edition.workspace = true
+name = "kol-theme"
+version = "0.1.0"
+description = "Kol design tokens — single source of truth for the TUI and the generated design-system cards."
+
+[dependencies]
+ratatui = { workspace = true }
+
+[lints]
+workspace = true
