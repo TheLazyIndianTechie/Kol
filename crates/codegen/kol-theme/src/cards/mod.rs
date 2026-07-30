@@ -3,6 +3,18 @@ pub mod foundation;
 /// Repo-relative directory the generated card library is written to.
 pub const OUTPUT_DIR: &str = "design-system";
 
+/// Absolute path of the generated card library, resolved from this crate's manifest
+/// directory so it is correct regardless of the caller's working directory.
+///
+/// The generator and the drift guard MUST resolve the same directory — that agreement is
+/// what makes the guard meaningful, so it lives here in one place rather than being
+/// duplicated at each call site.
+pub fn output_dir() -> std::path::PathBuf {
+    std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+        .join("../../..")
+        .join(OUTPUT_DIR)
+}
+
 /// Every card the current phase can generate.
 ///
 /// Foundation cards derive from tokens alone and ship in P1. Component cards (Field, Chrome,
@@ -210,5 +222,18 @@ mod tests {
     #[test]
     fn path_is_the_slugged_name() {
         assert_eq!(sample().path(), "surfaces.html");
+    }
+
+    #[test]
+    fn every_generated_card_opens_with_its_marker() {
+        for card in all() {
+            let expected = format!("<!-- @dsCard group=\"{}\" -->\n", card.group);
+            assert!(
+                card.to_html().starts_with(&expected),
+                "{}: first line must be exactly {expected:?} — the Design System pane \
+                 indexes on that line, and a card without it never appears at all",
+                card.name
+            );
+        }
     }
 }

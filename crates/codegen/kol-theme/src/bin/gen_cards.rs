@@ -11,10 +11,9 @@
 //! produce, which is what keeps the design system from drifting away from the binary.
 
 use kol_theme::cards;
-use std::path::PathBuf;
 
 fn main() -> std::io::Result<()> {
-    let out = output_dir();
+    let out = cards::output_dir();
     std::fs::create_dir_all(&out)?;
 
     let cards = cards::all();
@@ -25,12 +24,4 @@ fn main() -> std::io::Result<()> {
     }
     println!("{} cards generated", cards.len());
     Ok(())
-}
-
-/// Repo-root `design-system/`, resolved from this crate's manifest directory so the binary
-/// works regardless of the shell's current directory.
-fn output_dir() -> PathBuf {
-    PathBuf::from(env!("CARGO_MANIFEST_DIR"))
-        .join("../../..")
-        .join(cards::OUTPUT_DIR)
 }

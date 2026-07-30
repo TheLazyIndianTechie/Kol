@@ -5,17 +5,10 @@
 //! test failure rather than a silent inconsistency.
 
 use kol_theme::cards;
-use std::path::PathBuf;
-
-fn output_dir() -> PathBuf {
-    PathBuf::from(env!("CARGO_MANIFEST_DIR"))
-        .join("../../..")
-        .join(cards::OUTPUT_DIR)
-}
 
 #[test]
 fn committed_cards_match_the_tokens() {
-    let dir = output_dir();
+    let dir = cards::output_dir();
     for card in cards::all() {
         let path = dir.join(card.path());
         let committed = std::fs::read_to_string(&path).unwrap_or_else(|e| {
@@ -35,7 +28,7 @@ fn committed_cards_match_the_tokens() {
 
 #[test]
 fn no_orphaned_cards() {
-    let dir = output_dir();
+    let dir = cards::output_dir();
     let expected: Vec<String> = cards::all().iter().map(|c| c.path()).collect();
     let entries = std::fs::read_dir(&dir).expect("design-system/ exists");
     for entry in entries {
