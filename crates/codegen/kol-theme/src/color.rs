@@ -119,18 +119,42 @@ mod tests {
         }
     }
 
+    /// Tokens that are derived rather than transcribed. These are computed by
+    /// [`crate::composite`] from a translucent design colour over an opaque backdrop,
+    /// so their flattened hex never appears literally in the design file. They are
+    /// covered instead by `diff_fills_are_composited_from_the_design_alpha`.
+    const DERIVED_TOKENS: &[&str] = &["ADD_BG", "DEL_BG"];
+
     #[test]
-    fn swatch_hex_matches_its_color() {
+    fn every_transcribed_token_appears_in_the_design() {
+        let path = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+            .join("../../../docs/design-prototype/Kol Voice Harness.dc.html");
+        let design = std::fs::read_to_string(&path)
+            .unwrap_or_else(|e| panic!("cannot read design prototype at {}: {e}", path.display()))
+            .to_ascii_lowercase();
+
+        let mut checked = 0;
         for (title, swatches) in GROUPS {
             for s in *swatches {
-                assert_eq!(
-                    crate::hex(s.hex),
-                    s.color,
-                    "{title}/{}: hex string and Color disagree",
-                    s.name
+                if DERIVED_TOKENS.contains(&s.name) {
+                    continue;
+                }
+                assert!(
+                    design.contains(&s.hex.to_ascii_lowercase()),
+                    "{title}/{}: {} does not appear in the design prototype — \
+                     the value was mistyped, or the design changed",
+                    s.name,
+                    s.hex
                 );
+                checked += 1;
             }
         }
+
+        assert_eq!(
+            checked, 29,
+            "expected 29 transcribed tokens; a token was added or removed \
+             without updating this count"
+        );
     }
 
     #[test]
