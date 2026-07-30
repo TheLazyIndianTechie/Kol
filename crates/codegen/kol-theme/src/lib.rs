@@ -9,9 +9,11 @@
 //! letter-spacing survives as literal interleaved spaces ([`tracking::tracked`]).
 
 pub mod color;
+pub mod geometry;
 
 mod hex;
 
+pub mod motion;
 pub mod tracking;
 pub mod typography;
 
