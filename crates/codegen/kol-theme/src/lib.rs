@@ -12,4 +12,7 @@ pub mod color;
 
 mod hex;
 
+pub mod tracking;
+pub mod typography;
+
 pub use hex::{composite, hex};
