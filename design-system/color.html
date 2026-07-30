@@ -1,0 +1,67 @@
+<!-- @dsCard group="Color" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kol · Color</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 28px 32px;
+    background: #06070a;
+    color: #c3c9cf;
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 12.5px;
+    line-height: 1.5;
+    letter-spacing: .01em;
+  }
+  header { margin-bottom: 26px; }
+  h1 {
+    margin: 0;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: #e8edf1;
+  }
+  header p { margin: 7px 0 0; font-size: 10.5px; color: #566069; letter-spacing: .08em; }
+  table { border-collapse: collapse; width: 100%; max-width: 860px; }
+  th {
+    text-align: left;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #566069;
+    padding: 0 14px 9px 0;
+    border-bottom: 1px solid #161b22;
+  }
+  td { padding: 9px 14px 9px 0; border-bottom: 1px solid #161b22; vertical-align: middle; }
+  .swatch { width: 34px; height: 18px; display: block; border: 1px solid #1b2027; }
+  .name { color: #e8edf1; }
+  .hex { color: #8a949c; }
+  .note { color: #566069; }
+  .wrap { overflow-x: auto; }
+  section { margin-bottom: 34px; }
+  section h2 {
+    margin: 0 0 12px;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #566069;
+  }
+</style>
+</head>
+<body>
+<header>
+<h1>Color</h1>
+<p>31 tokens across 5 groups</p>
+</header>
+<main>
+<section><h2>Surfaces</h2><div class="wrap"><table><tr><th></th><th>Token</th><th>Hex</th><th>Usage</th></tr><tr><td><span class="swatch" style="background:#06070a"></span></td><td class="name">ROOT</td><td class="hex">#06070a</td><td class="note">Application background</td></tr><tr><td><span class="swatch" style="background:#080a0e"></span></td><td class="name">PANEL</td><td class="hex">#080a0e</td><td class="note">Header, footer, grid cell background</td></tr><tr><td><span class="swatch" style="background:#07090c"></span></td><td class="name">RAIL</td><td class="hex">#07090c</td><td class="note">Left field rail</td></tr><tr><td><span class="swatch" style="background:#0b0f14"></span></td><td class="name">RAISED</td><td class="hex">#0b0f14</td><td class="note">Active row, selected mode card</td></tr><tr><td><span class="swatch" style="background:#080b0f"></span></td><td class="name">BAR</td><td class="hex">#080b0f</td><td class="note">Screen header and action bar</td></tr><tr><td><span class="swatch" style="background:#0a0d12"></span></td><td class="name">MODAL</td><td class="hex">#0a0d12</td><td class="note">Consent dialog body</td></tr><tr><td><span class="swatch" style="background:#161b22"></span></td><td class="name">HAIRLINE</td><td class="hex">#161b22</td><td class="note">1px rule, grid gap</td></tr><tr><td><span class="swatch" style="background:#1b2027"></span></td><td class="name">BORDER_DIM</td><td class="hex">#1b2027</td><td class="note">Inactive control border</td></tr></table></div></section><section><h2>Text ramp</h2><div class="wrap"><table><tr><th></th><th>Token</th><th>Hex</th><th>Usage</th></tr><tr><td><span class="swatch" style="background:#e8edf1"></span></td><td class="name">PRIMARY</td><td class="hex">#e8edf1</td><td class="note">Headings and Kol's own speech</td></tr><tr><td><span class="swatch" style="background:#c3c9cf"></span></td><td class="name">BODY</td><td class="hex">#c3c9cf</td><td class="note">Default body text</td></tr><tr><td><span class="swatch" style="background:#8a949c"></span></td><td class="name">MUTED</td><td class="hex">#8a949c</td><td class="note">Secondary detail, tool names</td></tr><tr><td><span class="swatch" style="background:#566069"></span></td><td class="name">DIM</td><td class="hex">#566069</td><td class="note">Section labels, hints</td></tr><tr><td><span class="swatch" style="background:#3d454c"></span></td><td class="name">FAINT</td><td class="hex">#3d454c</td><td class="note">Timings, counts</td></tr><tr><td><span class="swatch" style="background:#2f363d"></span></td><td class="name">GHOST</td><td class="hex">#2f363d</td><td class="note">Diff gutter line numbers</td></tr></table></div></section><section><h2>Semantic</h2><div class="wrap"><table><tr><th></th><th>Token</th><th>Hex</th><th>Usage</th></tr><tr><td><span class="swatch" style="background:#5fd3e3"></span></td><td class="name">ACCENT</td><td class="hex">#5fd3e3</td><td class="note">Kol's voice, active state, focus</td></tr><tr><td><span class="swatch" style="background:#e0a95c"></span></td><td class="name">WARN</td><td class="hex">#e0a95c</td><td class="note">Uncommitted work, needs consent</td></tr><tr><td><span class="swatch" style="background:#74cfa4"></span></td><td class="name">OK</td><td class="hex">#74cfa4</td><td class="note">Success, apply affordance</td></tr><tr><td><span class="swatch" style="background:#e0674f"></span></td><td class="name">ALERT</td><td class="hex">#e0674f</td><td class="note">Recording, destructive, reject</td></tr><tr><td><span class="swatch" style="background:#c98ce0"></span></td><td class="name">VIOLET</td><td class="hex">#c98ce0</td><td class="note">Reserved: alternate field accent</td></tr></table></div></section><section><h2>Field depth</h2><div class="wrap"><table><tr><th></th><th>Token</th><th>Hex</th><th>Usage</th></tr><tr><td><span class="swatch" style="background:#5fd3e3"></span></td><td class="name">NEAR</td><td class="hex">#5fd3e3</td><td class="note">Front layer, rail field</td></tr><tr><td><span class="swatch" style="background:#3f7f8a"></span></td><td class="name">MID</td><td class="hex">#3f7f8a</td><td class="note">Middle layer, rail field</td></tr><tr><td><span class="swatch" style="background:#2a3138"></span></td><td class="name">FAR</td><td class="hex">#2a3138</td><td class="note">Back layer, rail field</td></tr><tr><td><span class="swatch" style="background:#5fd3e3"></span></td><td class="name">GRAPH_NEAR</td><td class="hex">#5fd3e3</td><td class="note">Front layer, graph field</td></tr><tr><td><span class="swatch" style="background:#3a6f79"></span></td><td class="name">GRAPH_MID</td><td class="hex">#3a6f79</td><td class="note">Middle layer, graph field</td></tr><tr><td><span class="swatch" style="background:#242a30"></span></td><td class="name">GRAPH_FAR</td><td class="hex">#242a30</td><td class="note">Back layer, graph field</td></tr></table></div></section><section><h2>Diff</h2><div class="wrap"><table><tr><th></th><th>Token</th><th>Hex</th><th>Usage</th></tr><tr><td><span class="swatch" style="background:#a8dfc6"></span></td><td class="name">ADD_FG</td><td class="hex">#a8dfc6</td><td class="note">Added line text</td></tr><tr><td><span class="swatch" style="background:#2f6b53"></span></td><td class="name">ADD_GUTTER</td><td class="hex">#2f6b53</td><td class="note">Added line number</td></tr><tr><td><span class="swatch" style="background:#0f1917"></span></td><td class="name">ADD_BG</td><td class="hex">#0f1917</td><td class="note">Added row fill, rgba(116,207,164,.09) flattened over ROOT</td></tr><tr><td><span class="swatch" style="background:#e0a396"></span></td><td class="name">DEL_FG</td><td class="hex">#e0a396</td><td class="note">Removed line text</td></tr><tr><td><span class="swatch" style="background:#7a3a30"></span></td><td class="name">DEL_GUTTER</td><td class="hex">#7a3a30</td><td class="note">Removed line number</td></tr><tr><td><span class="swatch" style="background:#190f10"></span></td><td class="name">DEL_BG</td><td class="hex">#190f10</td><td class="note">Removed row fill, rgba(224,103,79,.09) flattened over ROOT</td></tr></table></div></section>
+</main>
+</body>
+</html>

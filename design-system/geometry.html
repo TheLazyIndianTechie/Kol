@@ -1,0 +1,67 @@
+<!-- @dsCard group="Geometry" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kol · Geometry</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 28px 32px;
+    background: #06070a;
+    color: #c3c9cf;
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 12.5px;
+    line-height: 1.5;
+    letter-spacing: .01em;
+  }
+  header { margin-bottom: 26px; }
+  h1 {
+    margin: 0;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: #e8edf1;
+  }
+  header p { margin: 7px 0 0; font-size: 10.5px; color: #566069; letter-spacing: .08em; }
+  table { border-collapse: collapse; width: 100%; max-width: 860px; }
+  th {
+    text-align: left;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #566069;
+    padding: 0 14px 9px 0;
+    border-bottom: 1px solid #161b22;
+  }
+  td { padding: 9px 14px 9px 0; border-bottom: 1px solid #161b22; vertical-align: middle; }
+  .swatch { width: 34px; height: 18px; display: block; border: 1px solid #1b2027; }
+  .name { color: #e8edf1; }
+  .hex { color: #8a949c; }
+  .note { color: #566069; }
+  .wrap { overflow-x: auto; }
+  section { margin-bottom: 34px; }
+  section h2 {
+    margin: 0 0 12px;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #566069;
+  }
+</style>
+</head>
+<body>
+<header>
+<h1>Geometry</h1>
+<p>Field surfaces, braille cell, density range</p>
+</header>
+<main>
+<section><h2>Field surfaces</h2><div class="wrap"><table><tr><th>Surface</th><th>Cells</th><th>Sub-pixels</th><th>Capacity</th></tr><tr><td class="name">RAIL</td><td class="hex">46 x 32</td><td class="hex">92 x 128</td><td class="note">11776</td></tr><tr><td class="name">GRAPH</td><td class="hex">108 x 32</td><td class="hex">216 x 128</td><td class="note">27648</td></tr></table></div></section><section><h2>Braille cell</h2><p class="note">Base codepoint U+2800. Each cell packs a 2 x 4 sub-pixel grid, giving the field four times the terminal's vertical resolution.</p></section><section><h2>Density</h2><div class="wrap"><table><tr><th>Token</th><th>Value</th></tr><tr><td class="name">DENSITY_DEFAULT</td><td class="hex">2300</td></tr><tr><td class="name">DENSITY_MIN</td><td class="hex">300</td></tr><tr><td class="name">DENSITY_MAX</td><td class="hex">2600</td></tr></table></div></section>
+</main>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!-- @dsCard group="Type" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kol · Type</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 28px 32px;
+    background: #06070a;
+    color: #c3c9cf;
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 12.5px;
+    line-height: 1.5;
+    letter-spacing: .01em;
+  }
+  header { margin-bottom: 26px; }
+  h1 {
+    margin: 0;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: #e8edf1;
+  }
+  header p { margin: 7px 0 0; font-size: 10.5px; color: #566069; letter-spacing: .08em; }
+  table { border-collapse: collapse; width: 100%; max-width: 860px; }
+  th {
+    text-align: left;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #566069;
+    padding: 0 14px 9px 0;
+    border-bottom: 1px solid #161b22;
+  }
+  td { padding: 9px 14px 9px 0; border-bottom: 1px solid #161b22; vertical-align: middle; }
+  .swatch { width: 34px; height: 18px; display: block; border: 1px solid #1b2027; }
+  .name { color: #e8edf1; }
+  .hex { color: #8a949c; }
+  .note { color: #566069; }
+  .wrap { overflow-x: auto; }
+  section { margin-bottom: 34px; }
+  section h2 {
+    margin: 0 0 12px;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #566069;
+  }
+</style>
+</head>
+<body>
+<header>
+<h1>Type</h1>
+<p>5 emphasis roles, tracking</p>
+</header>
+<main>
+<section><h2>Emphasis roles</h2><div class="wrap"><table><tr><th>Role</th><th>Sample</th><th>Design source</th><th>Tracked</th></tr><tr><td class="name">Display</td><td style="color:#5fd3e3;font-weight:700">S T A N D I N G  B Y</td><td class="note">22px / letter-spacing .28em</td><td class="note">yes</td></tr><tr><td class="name">Title</td><td style="color:#e8edf1;font-weight:700">The socket was closing on silence</td><td class="note">14–17px</td><td class="note">no</td></tr><tr><td class="name">Body</td><td style="color:#c3c9cf;font-weight:400">The socket was closing on silence</td><td class="note">12.5px / line-height 1.7</td><td class="note">no</td></tr><tr><td class="name">Label</td><td style="color:#566069;font-weight:400">S T A N D I N G  B Y</td><td class="note">10–10.5px / letter-spacing .18–.24em</td><td class="note">yes</td></tr><tr><td class="name">Meta</td><td style="color:#3d454c;font-weight:400">The socket was closing on silence</td><td class="note">10.5px</td><td class="note">no</td></tr></table></div></section><section><h2>Tracking</h2><p class="note">A terminal cannot set sub-character spacing, so the design's letter-spacing becomes literal interleaved spaces. Words are separated by two.</p><div class="wrap"><table><tr><th>Input</th><th>Rendered</th></tr><tr><td class="hex">KOL</td><td class="name">K O L</td></tr><tr><td class="hex">STANDING BY</td><td class="name">S T A N D I N G  B Y</td></tr><tr><td class="hex">CONSENT REQUIRED</td><td class="name">C O N S E N T  R E Q U I R E D</td></tr></table></div></section>
+</main>
+</body>
+</html>

@@ -1,3 +1,22 @@
+pub mod foundation;
+
+/// Repo-relative directory the generated card library is written to.
+pub const OUTPUT_DIR: &str = "design-system";
+
+/// Every card the current phase can generate.
+///
+/// Foundation cards derive from tokens alone and ship in P1. Component cards (Field, Chrome,
+/// States, Consent) require the components to exist and are added by the phase that builds
+/// them — see the spec's §4.4 table.
+pub fn all() -> Vec<Card> {
+    vec![
+        foundation::color_card(),
+        foundation::type_card(),
+        foundation::motion_card(),
+        foundation::geometry_card(),
+    ]
+}
+
 /// One design-system card: a standalone HTML file in the synced project.
 ///
 /// Cards are entirely self-contained — the Design System pane blocks requests to external
