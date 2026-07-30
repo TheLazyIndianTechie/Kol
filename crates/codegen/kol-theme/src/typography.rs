@@ -62,7 +62,7 @@ impl Role {
         }
     }
 
-    /// Lowercase name used in generated card markup.
+    /// Title-case name shown as this role's label in generated card markup.
     pub const fn name(self) -> &'static str {
         match self {
             Role::Display => "Display",
@@ -112,5 +112,14 @@ mod tests {
     #[test]
     fn roles_list_is_complete() {
         assert_eq!(ROLES.len(), 5);
+    }
+
+    #[test]
+    fn names_are_title_case() {
+        assert_eq!(Role::Display.name(), "Display");
+        assert_eq!(Role::Title.name(), "Title");
+        assert_eq!(Role::Body.name(), "Body");
+        assert_eq!(Role::Label.name(), "Label");
+        assert_eq!(Role::Meta.name(), "Meta");
     }
 }

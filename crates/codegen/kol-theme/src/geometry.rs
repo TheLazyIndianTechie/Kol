@@ -15,6 +15,11 @@ pub const DENSITY_MIN: usize = 300;
 /// Highest density the prototype permits.
 pub const DENSITY_MAX: usize = 2600;
 
+// Compile-time invariants: the default density must lie inside the permitted range.
+// Checked on every build, not only under `cargo test`.
+const _: () = assert!(DENSITY_MIN <= DENSITY_DEFAULT);
+const _: () = assert!(DENSITY_DEFAULT <= DENSITY_MAX);
+
 /// Render geometry of a field surface, measured in terminal cells.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct FieldGeometry {
@@ -59,12 +64,6 @@ mod tests {
     #[test]
     fn rail_capacity() {
         assert_eq!(FieldGeometry::RAIL.capacity(), 92 * 128);
-    }
-
-    #[test]
-    fn density_default_is_within_range() {
-        assert!(DENSITY_MIN <= DENSITY_DEFAULT);
-        assert!(DENSITY_DEFAULT <= DENSITY_MAX);
     }
 
     #[test]
